@@ -8,8 +8,7 @@ public class AraiBackendApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AraiBackendApplication.class, args);  
-                
-                
+    
 	}
 
 }

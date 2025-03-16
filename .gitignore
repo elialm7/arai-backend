@@ -37,3 +37,4 @@ build/
 ### others ###
 nb-configuration.xml
 jshell.history
+META-INF/
