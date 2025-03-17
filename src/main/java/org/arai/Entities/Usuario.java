@@ -4,10 +4,12 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -40,16 +42,21 @@ public class Usuario {
     private String pssword;
 
 
-    @OneToOne
-    @JoinColumn(
-        name = "id_rol_fk", 
-        referencedColumnName = "role_id"
-    )
-    private Rol rol;
 
-
-    @OneToMany(mappedBy = "usuario")
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
     private List<Horario> horarios; 
+
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+    private List<Planeamiento> planeamientos;
+
+
+    @OneToMany(mappedBy = "usuario" , fetch = FetchType.EAGER)
+    private List<PlaneamientoComentario> comentarios;
+
+       // Un usuario tiene un único rol
+    @ManyToOne
+    @JoinColumn(name = "id_rol_fk", nullable = false)
+    private Rol rol;
 
 
 }

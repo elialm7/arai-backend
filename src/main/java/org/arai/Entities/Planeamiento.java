@@ -4,6 +4,7 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -52,16 +53,16 @@ public class Planeamiento {
     private String raw_file_url ;
 
 
-    @OneToMany(mappedBy = "planeamiento")
+    @OneToMany(mappedBy = "planeamiento", fetch = FetchType.EAGER)
     private List<PlaneamientoActividad> actividades;
 
-    @OneToMany(mappedBy = "planeamiento")
+    @OneToMany(mappedBy = "planeamiento", fetch = FetchType.EAGER)
     private List<PlaneamientoCapacidad> capacidades; 
 
-    @OneToMany(mappedBy = "planeamiento")
+    @OneToMany(mappedBy = "planeamiento", fetch = FetchType.EAGER)
     private List<PlaneamientoIndicador> indicadores; 
 
-    @OneToMany(mappedBy = "planeamiento")
+    @OneToMany(mappedBy = "planeamiento", fetch = FetchType.EAGER)
     private List<PlaneamientoComentario> comentarios; 
 
 
