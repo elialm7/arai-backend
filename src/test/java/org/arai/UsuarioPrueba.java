@@ -21,7 +21,9 @@ public class UsuarioPrueba {
     public void test(){
         Long userid = 1L; 
         Usuario user = manager.find(Usuario.class, userid);
-        assertNotNull(user);
+        assertEquals(user.getNombre(), "rodolfo");
+        assertEquals(user.getRol().getNombreRol(), "ADMIN");
+        assertEquals(user.getRol().getPermisos().get(0).getNombrePermiso(), "ALL");
 
     }
 }
