@@ -2,6 +2,7 @@ package org.arai.Entities;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -59,6 +60,10 @@ public class Usuario {
     @ManyToOne
     @JoinColumn(name = "id_rol_fk", nullable = false)
     private Rol rol;
+
+
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+    private List<Token> tokens;
 
 
 }
