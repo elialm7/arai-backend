@@ -30,7 +30,8 @@ public class Usuario {
     @Column(name = "id_user")
     private Long id;
     
-
+    @Column(name = "username")
+    private String username;
 
     @Column(name = "nombre")
     private String nombre; 
