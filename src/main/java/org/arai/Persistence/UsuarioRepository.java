@@ -28,7 +28,7 @@ public class UsuarioRepository {
      * 
      * @param usuario con el parametro de username cargado
      * @returnn ${Usuario} si encuentra el usuario
-     * @throws UsuarioNoEncontradoException si no encuentra el usuario.
+     * @throws UsuarioNoEncontradoException si no encuentra el usuario.t
      */
     public Optional<Usuario> buscarPorUsername(Usuario usuario){
 
