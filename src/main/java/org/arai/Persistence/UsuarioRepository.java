@@ -1,5 +1,6 @@
 package org.arai.Persistence;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.swing.text.html.Option;
@@ -43,7 +44,17 @@ public class UsuarioRepository {
     }
 
 
-    
+    public List<Usuario> obtenertodos() {
 
 
+        try{
+            List<Usuario> usuarios = manager.createQuery("SELECT u FROM Usuario u").getResultList();
+            return usuarios;
+        }catch (NoResultException e){
+            throw new UsuarioNoEncontradoException("No hay usuarios!!", e);
+
+        }
+
+
+    }
 }
