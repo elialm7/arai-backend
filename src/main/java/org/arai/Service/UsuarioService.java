@@ -22,8 +22,11 @@ public class UsuarioService {
     }
 
 
-    public List<Usuario> ObtenerTodosLosUsuarios(){
-        return repository.obtenertodos();
+
+
+    public void CrearUsuario(){
+        //todo: dto para la creacion del usuario
+        //todo : logica de negocio para la creacion de usuario
     }
 
 

@@ -1,0 +1,280 @@
+2025-04-24 13:52:55 [background-preinit] INFO  : HV000001: Hibernate Validator 8.0.2.Final
+2025-04-24 13:52:55 [restartedMain] INFO  : Starting AraiBackendApplication using Java 21.0.6 with PID 20488 (D:\elifiles\dev\mydev_projects\arai-backend\target\classes started by Elias in D:\elifiles\dev\mydev_projects\arai-backend)
+2025-04-24 13:52:55 [restartedMain] DEBUG : Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-04-24 13:52:55 [restartedMain] INFO  : No active profile set, falling back to 1 default profile: "default"
+2025-04-24 13:52:55 [restartedMain] INFO  : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-24 13:52:55 [restartedMain] INFO  : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-24 13:52:56 [restartedMain] INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-24 13:52:56 [restartedMain] INFO  : Finished Spring Data repository scanning in 25 ms. Found 0 JPA repository interfaces.
+2025-04-24 13:52:57 [restartedMain] INFO  : Tomcat initialized with port 5002 (http)
+2025-04-24 13:52:57 [restartedMain] INFO  : Initializing ProtocolHandler ["http-nio-5002"]
+2025-04-24 13:52:57 [restartedMain] INFO  : Starting service [Tomcat]
+2025-04-24 13:52:57 [restartedMain] INFO  : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-24 13:52:57 [restartedMain] INFO  : Initializing Spring embedded WebApplicationContext
+2025-04-24 13:52:57 [restartedMain] INFO  : Root WebApplicationContext: initialization completed in 2145 ms
+2025-04-24 13:52:57 [restartedMain] INFO  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-24 13:52:57 [restartedMain] INFO  : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-04-24 13:52:57 [restartedMain] INFO  : HHH000026: Second-level cache disabled
+2025-04-24 13:52:58 [restartedMain] INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-24 13:52:58 [restartedMain] INFO  : HikariPool-1 - Starting...
+2025-04-24 13:52:58 [restartedMain] INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3fb01df9
+2025-04-24 13:52:58 [restartedMain] INFO  : HikariPool-1 - Start completed.
+2025-04-24 13:52:58 [restartedMain] WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-24 13:52:58 [restartedMain] INFO  : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-24 13:53:00 [restartedMain] INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-24 13:53:00 [restartedMain] INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-24 13:53:00 [restartedMain] WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-24 13:53:01 [restartedMain] INFO  : LiveReload server is running on port 35729
+2025-04-24 13:53:01 [restartedMain] INFO  : Starting ProtocolHandler ["http-nio-5002"]
+2025-04-24 13:53:01 [restartedMain] INFO  : Tomcat started on port 5002 (http) with context path '/'
+2025-04-24 13:53:01 [restartedMain] INFO  : Started AraiBackendApplication in 7.059 seconds (process running for 8.118)
+2025-04-24 13:55:51 [http-nio-5002-exec-1] INFO  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-24 13:55:51 [http-nio-5002-exec-1] INFO  : Initializing Servlet 'dispatcherServlet'
+2025-04-24 13:55:51 [http-nio-5002-exec-1] INFO  : Completed initialization in 4 ms
+2025-04-24 13:55:51 [http-nio-5002-exec-1] WARN  : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource usuario/crearUsuario.]
+2025-04-24 13:56:38 [http-nio-5002-exec-3] WARN  : token ok
+2025-04-24 13:56:54 [http-nio-5002-exec-7] WARN  : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource usuario/crearUsuario.]
+2025-04-24 13:56:55 [http-nio-5002-exec-2] WARN  : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource usuario/crearUsuario.]
+2025-04-24 13:56:56 [http-nio-5002-exec-5] WARN  : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource usuario/crearUsuario.]
+2025-04-24 13:56:56 [http-nio-5002-exec-6] WARN  : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource usuario/crearUsuario.]
+2025-04-24 13:56:56 [http-nio-5002-exec-8] WARN  : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource usuario/crearUsuario.]
+2025-04-24 13:56:57 [http-nio-5002-exec-4] WARN  : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource usuario/crearUsuario.]
+2025-04-24 13:56:57 [http-nio-5002-exec-10] WARN  : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource usuario/crearUsuario.]
+2025-04-24 13:56:57 [http-nio-5002-exec-9] WARN  : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource usuario/crearUsuario.]
+2025-04-24 13:56:58 [http-nio-5002-exec-1] WARN  : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource usuario/crearUsuario.]
+2025-04-24 13:56:58 [http-nio-5002-exec-3] WARN  : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource usuario/crearUsuario.]
+2025-04-24 13:56:58 [http-nio-5002-exec-7] WARN  : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource usuario/crearUsuario.]
+2025-04-24 13:57:09 [http-nio-5002-exec-2] WARN  : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource usuario/crearUsuario.]
+2025-04-24 13:57:10 [http-nio-5002-exec-5] WARN  : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource usuario/crearUsuario.]
+2025-04-24 13:58:07 [SpringApplicationShutdownHook] INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-24 13:58:07 [tomcat-shutdown] INFO  : Graceful shutdown complete
+2025-04-24 13:58:07 [SpringApplicationShutdownHook] INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-24 13:58:07 [SpringApplicationShutdownHook] INFO  : HikariPool-1 - Shutdown initiated...
+2025-04-24 13:58:07 [SpringApplicationShutdownHook] INFO  : HikariPool-1 - Shutdown completed.
+2025-04-24 13:58:13 [background-preinit] INFO  : HV000001: Hibernate Validator 8.0.2.Final
+2025-04-24 13:58:13 [restartedMain] INFO  : Starting AraiBackendApplication using Java 21.0.6 with PID 17652 (D:\elifiles\dev\mydev_projects\arai-backend\target\classes started by Elias in D:\elifiles\dev\mydev_projects\arai-backend)
+2025-04-24 13:58:13 [restartedMain] DEBUG : Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-04-24 13:58:13 [restartedMain] INFO  : No active profile set, falling back to 1 default profile: "default"
+2025-04-24 13:58:13 [restartedMain] INFO  : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-24 13:58:13 [restartedMain] INFO  : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-24 13:58:14 [restartedMain] INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-24 13:58:14 [restartedMain] INFO  : Finished Spring Data repository scanning in 31 ms. Found 0 JPA repository interfaces.
+2025-04-24 13:58:15 [restartedMain] INFO  : Tomcat initialized with port 5002 (http)
+2025-04-24 13:58:15 [restartedMain] INFO  : Initializing ProtocolHandler ["http-nio-5002"]
+2025-04-24 13:58:15 [restartedMain] INFO  : Starting service [Tomcat]
+2025-04-24 13:58:15 [restartedMain] INFO  : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-24 13:58:15 [restartedMain] INFO  : Initializing Spring embedded WebApplicationContext
+2025-04-24 13:58:15 [restartedMain] INFO  : Root WebApplicationContext: initialization completed in 2051 ms
+2025-04-24 13:58:15 [restartedMain] INFO  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-24 13:58:15 [restartedMain] INFO  : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-04-24 13:58:15 [restartedMain] INFO  : HHH000026: Second-level cache disabled
+2025-04-24 13:58:16 [restartedMain] INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-24 13:58:16 [restartedMain] INFO  : HikariPool-1 - Starting...
+2025-04-24 13:58:16 [restartedMain] INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7361602
+2025-04-24 13:58:16 [restartedMain] INFO  : HikariPool-1 - Start completed.
+2025-04-24 13:58:16 [restartedMain] WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-24 13:58:16 [restartedMain] INFO  : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-24 13:58:18 [restartedMain] INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-24 13:58:18 [restartedMain] INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-24 13:58:18 [restartedMain] WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-24 13:58:19 [restartedMain] INFO  : LiveReload server is running on port 35729
+2025-04-24 13:58:19 [restartedMain] INFO  : Starting ProtocolHandler ["http-nio-5002"]
+2025-04-24 13:58:19 [restartedMain] INFO  : Tomcat started on port 5002 (http) with context path '/'
+2025-04-24 13:58:19 [restartedMain] INFO  : Started AraiBackendApplication in 6.408 seconds (process running for 7.252)
+2025-04-24 13:58:31 [http-nio-5002-exec-1] INFO  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-24 13:58:31 [http-nio-5002-exec-1] INFO  : Initializing Servlet 'dispatcherServlet'
+2025-04-24 13:58:31 [http-nio-5002-exec-1] INFO  : Completed initialization in 1 ms
+2025-04-24 13:58:31 [File Watcher] INFO  : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-04-24 13:58:31 [Thread-5] INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-24 13:58:31 [tomcat-shutdown] INFO  : Pausing ProtocolHandler ["http-nio-5002"]
+2025-04-24 13:58:31 [http-nio-5002-exec-1] WARN  : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<java.lang.String> org.arai.Controller.UsuarioController.crearUsuario(org.arai.Model.CrearUsuarioDTO) with 8 errors: [Field error in object 'crearUsuarioDTO' on field 'apellido': rejected value [null]; codes [NotBlank.crearUsuarioDTO.apellido,NotBlank.apellido,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [crearUsuarioDTO.apellido,apellido]; arguments []; default message [apellido]]; default message [El apellido no puede estar en blanco]] [Field error in object 'crearUsuarioDTO' on field 'correo': rejected value [null]; codes [NotBlank.crearUsuarioDTO.correo,NotBlank.correo,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [crearUsuarioDTO.correo,correo]; arguments []; default message [correo]]; default message [El correo no puede estar en blanco]] [Field error in object 'crearUsuarioDTO' on field 'username': rejected value [null]; codes [NotBlank.crearUsuarioDTO.username,NotBlank.username,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [crearUsuarioDTO.username,username]; arguments []; default message [username]]; default message [El username no puede ser nulo]] [Field error in object 'crearUsuarioDTO' on field 'nombre': rejected value [null]; codes [NotEmpty.crearUsuarioDTO.nombre,NotEmpty.nombre,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [crearUsuarioDTO.nombre,nombre]; arguments []; default message [nombre]]; default message [El nombre no puede esta vacio]] [Field error in object 'crearUsuarioDTO' on field 'nombre': rejected value [null]; codes [NotBlank.crearUsuarioDTO.nombre,NotBlank.nombre,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [crearUsuarioDTO.nombre,nombre]; arguments []; default message [nombre]]; default message [El usuario no puede tener nombre en blaco]] [Field error in object 'crearUsuarioDTO' on field 'correo': rejected value [null]; codes [NotEmpty.crearUsuarioDTO.correo,NotEmpty.correo,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [crearUsuarioDTO.correo,correo]; arguments []; default message [correo]]; default message [El correo no puede estar vacio]] [Field error in object 'crearUsuarioDTO' on field 'apellido': rejected value [null]; codes [NotEmpty.crearUsuarioDTO.apellido,NotEmpty.apellido,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [crearUsuarioDTO.apellido,apellido]; arguments []; default message [apellido]]; default message [El apellido no puede estar vacio]] [Field error in object 'crearUsuarioDTO' on field 'username': rejected value [null]; codes [NotEmpty.crearUsuarioDTO.username,NotEmpty.username,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [crearUsuarioDTO.username,username]; arguments []; default message [username]]; default message [El username no puede estar vacio]] ]
+2025-04-24 13:58:31 [tomcat-shutdown] INFO  : Graceful shutdown complete
+2025-04-24 13:58:31 [Thread-5] INFO  : Stopping ProtocolHandler ["http-nio-5002"]
+2025-04-24 13:58:31 [Thread-5] INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-24 13:58:31 [Thread-5] INFO  : HikariPool-1 - Shutdown initiated...
+2025-04-24 13:58:31 [Thread-5] INFO  : HikariPool-1 - Shutdown completed.
+2025-04-24 13:58:32 [restartedMain] INFO  : Starting AraiBackendApplication using Java 21.0.6 with PID 17652 (D:\elifiles\dev\mydev_projects\arai-backend\target\classes started by Elias in D:\elifiles\dev\mydev_projects\arai-backend)
+2025-04-24 13:58:32 [restartedMain] DEBUG : Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-04-24 13:58:32 [restartedMain] INFO  : No active profile set, falling back to 1 default profile: "default"
+2025-04-24 13:58:32 [restartedMain] INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-24 13:58:32 [restartedMain] INFO  : Finished Spring Data repository scanning in 5 ms. Found 0 JPA repository interfaces.
+2025-04-24 13:58:32 [restartedMain] INFO  : Tomcat initialized with port 5002 (http)
+2025-04-24 13:58:32 [restartedMain] INFO  : Initializing ProtocolHandler ["http-nio-5002"]
+2025-04-24 13:58:32 [restartedMain] INFO  : Starting service [Tomcat]
+2025-04-24 13:58:32 [restartedMain] INFO  : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-24 13:58:32 [restartedMain] INFO  : Initializing Spring embedded WebApplicationContext
+2025-04-24 13:58:32 [restartedMain] INFO  : Root WebApplicationContext: initialization completed in 354 ms
+2025-04-24 13:58:32 [restartedMain] INFO  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-24 13:58:32 [restartedMain] INFO  : HHH000026: Second-level cache disabled
+2025-04-24 13:58:32 [restartedMain] INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-24 13:58:32 [restartedMain] INFO  : HikariPool-2 - Starting...
+2025-04-24 13:58:32 [restartedMain] INFO  : HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@73a6313b
+2025-04-24 13:58:32 [restartedMain] INFO  : HikariPool-2 - Start completed.
+2025-04-24 13:58:32 [restartedMain] WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-24 13:58:32 [restartedMain] INFO  : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 17.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-24 13:58:32 [restartedMain] INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-24 13:58:32 [restartedMain] INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-24 13:58:32 [restartedMain] WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-24 13:58:33 [restartedMain] INFO  : LiveReload server is running on port 35729
+2025-04-24 13:58:33 [restartedMain] INFO  : Starting ProtocolHandler ["http-nio-5002"]
+2025-04-24 13:58:33 [restartedMain] INFO  : Tomcat started on port 5002 (http) with context path '/'
+2025-04-24 13:58:33 [restartedMain] INFO  : Started AraiBackendApplication in 1.06 seconds (process running for 21.103)
+2025-04-24 13:58:33 [restartedMain] INFO  : Condition evaluation unchanged
+2025-04-24 13:58:34 [File Watcher] INFO  : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2025-04-24 13:58:34 [Thread-7] INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-24 13:58:34 [tomcat-shutdown] INFO  : Pausing ProtocolHandler ["http-nio-5002"]
+2025-04-24 13:58:34 [tomcat-shutdown] INFO  : Graceful shutdown complete
+2025-04-24 13:58:34 [Thread-7] INFO  : Stopping ProtocolHandler ["http-nio-5002"]
+2025-04-24 13:58:34 [Thread-7] INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-24 13:58:34 [Thread-7] INFO  : HikariPool-2 - Shutdown initiated...
+2025-04-24 13:58:34 [Thread-7] INFO  : HikariPool-2 - Shutdown completed.
+2025-04-24 13:58:34 [restartedMain] INFO  : Starting AraiBackendApplication using Java 21.0.6 with PID 17652 (D:\elifiles\dev\mydev_projects\arai-backend\target\classes started by Elias in D:\elifiles\dev\mydev_projects\arai-backend)
+2025-04-24 13:58:34 [restartedMain] DEBUG : Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-04-24 13:58:34 [restartedMain] INFO  : No active profile set, falling back to 1 default profile: "default"
+2025-04-24 13:58:35 [restartedMain] INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-24 13:58:35 [restartedMain] INFO  : Finished Spring Data repository scanning in 14 ms. Found 0 JPA repository interfaces.
+2025-04-24 13:58:36 [restartedMain] INFO  : Tomcat initialized with port 5002 (http)
+2025-04-24 13:58:36 [restartedMain] INFO  : Initializing ProtocolHandler ["http-nio-5002"]
+2025-04-24 13:58:36 [restartedMain] INFO  : Starting service [Tomcat]
+2025-04-24 13:58:36 [restartedMain] INFO  : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-24 13:58:36 [restartedMain] INFO  : Initializing Spring embedded WebApplicationContext
+2025-04-24 13:58:36 [restartedMain] INFO  : Root WebApplicationContext: initialization completed in 1210 ms
+2025-04-24 13:58:36 [restartedMain] INFO  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-24 13:58:36 [restartedMain] INFO  : HHH000026: Second-level cache disabled
+2025-04-24 13:58:36 [restartedMain] INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-24 13:58:36 [restartedMain] INFO  : HikariPool-3 - Starting...
+2025-04-24 13:58:36 [restartedMain] INFO  : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@785bca70
+2025-04-24 13:58:36 [restartedMain] INFO  : HikariPool-3 - Start completed.
+2025-04-24 13:58:36 [restartedMain] WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-24 13:58:36 [restartedMain] INFO  : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
+	Database driver: undefined/unknown
+	Database version: 17.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-24 13:58:37 [restartedMain] INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-24 13:58:37 [restartedMain] INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-24 13:58:37 [restartedMain] WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-24 13:58:37 [restartedMain] INFO  : LiveReload server is running on port 35729
+2025-04-24 13:58:37 [restartedMain] INFO  : Starting ProtocolHandler ["http-nio-5002"]
+2025-04-24 13:58:37 [restartedMain] INFO  : Tomcat started on port 5002 (http) with context path '/'
+2025-04-24 13:58:37 [restartedMain] INFO  : Started AraiBackendApplication in 3.275 seconds (process running for 25.992)
+2025-04-24 13:58:37 [restartedMain] INFO  : Condition evaluation unchanged
+2025-04-24 13:59:20 [SpringApplicationShutdownHook] INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-24 13:59:20 [tomcat-shutdown] INFO  : Graceful shutdown complete
+2025-04-24 13:59:20 [SpringApplicationShutdownHook] INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-24 13:59:20 [SpringApplicationShutdownHook] INFO  : HikariPool-3 - Shutdown initiated...
+2025-04-24 13:59:20 [SpringApplicationShutdownHook] INFO  : HikariPool-3 - Shutdown completed.
+2025-04-24 13:59:27 [background-preinit] INFO  : HV000001: Hibernate Validator 8.0.2.Final
+2025-04-24 13:59:27 [restartedMain] INFO  : Starting AraiBackendApplication using Java 21.0.6 with PID 13168 (D:\elifiles\dev\mydev_projects\arai-backend\target\classes started by Elias in D:\elifiles\dev\mydev_projects\arai-backend)
+2025-04-24 13:59:27 [restartedMain] DEBUG : Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-04-24 13:59:27 [restartedMain] INFO  : No active profile set, falling back to 1 default profile: "default"
+2025-04-24 13:59:27 [restartedMain] INFO  : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-24 13:59:27 [restartedMain] INFO  : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-24 13:59:28 [restartedMain] INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-24 13:59:28 [restartedMain] INFO  : Finished Spring Data repository scanning in 17 ms. Found 0 JPA repository interfaces.
+2025-04-24 13:59:29 [restartedMain] INFO  : Tomcat initialized with port 5002 (http)
+2025-04-24 13:59:29 [restartedMain] INFO  : Initializing ProtocolHandler ["http-nio-5002"]
+2025-04-24 13:59:29 [restartedMain] INFO  : Starting service [Tomcat]
+2025-04-24 13:59:29 [restartedMain] INFO  : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-24 13:59:29 [restartedMain] INFO  : Initializing Spring embedded WebApplicationContext
+2025-04-24 13:59:29 [restartedMain] INFO  : Root WebApplicationContext: initialization completed in 1951 ms
+2025-04-24 13:59:29 [restartedMain] INFO  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-24 13:59:29 [restartedMain] INFO  : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-04-24 13:59:29 [restartedMain] INFO  : HHH000026: Second-level cache disabled
+2025-04-24 13:59:30 [restartedMain] INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-24 13:59:30 [restartedMain] INFO  : HikariPool-1 - Starting...
+2025-04-24 13:59:30 [restartedMain] INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@15141c91
+2025-04-24 13:59:30 [restartedMain] INFO  : HikariPool-1 - Start completed.
+2025-04-24 13:59:30 [restartedMain] WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-24 13:59:30 [restartedMain] INFO  : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-24 13:59:32 [restartedMain] INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-24 13:59:32 [restartedMain] INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-24 13:59:32 [restartedMain] WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-24 13:59:33 [restartedMain] INFO  : LiveReload server is running on port 35729
+2025-04-24 13:59:33 [restartedMain] INFO  : Starting ProtocolHandler ["http-nio-5002"]
+2025-04-24 13:59:33 [restartedMain] INFO  : Tomcat started on port 5002 (http) with context path '/'
+2025-04-24 13:59:33 [restartedMain] INFO  : Started AraiBackendApplication in 6.513 seconds (process running for 7.425)
+2025-04-24 14:07:05 [SpringApplicationShutdownHook] INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-24 14:07:05 [tomcat-shutdown] INFO  : Graceful shutdown complete
+2025-04-24 14:07:05 [SpringApplicationShutdownHook] INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-24 14:07:05 [SpringApplicationShutdownHook] INFO  : HikariPool-1 - Shutdown initiated...
+2025-04-24 14:07:05 [SpringApplicationShutdownHook] INFO  : HikariPool-1 - Shutdown completed.
+2025-04-24 14:08:58 [background-preinit] INFO  : HV000001: Hibernate Validator 8.0.2.Final
+2025-04-24 14:08:58 [restartedMain] INFO  : Starting AraiBackendApplication using Java 21.0.6 with PID 20704 (D:\elifiles\dev\mydev_projects\arai-backend\target\classes started by Elias in D:\elifiles\dev\mydev_projects\arai-backend)
+2025-04-24 14:08:58 [restartedMain] DEBUG : Running with Spring Boot v3.4.3, Spring v6.2.3
+2025-04-24 14:08:58 [restartedMain] INFO  : No active profile set, falling back to 1 default profile: "default"
+2025-04-24 14:08:58 [restartedMain] INFO  : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-04-24 14:08:58 [restartedMain] INFO  : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-04-24 14:08:59 [restartedMain] INFO  : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-24 14:08:59 [restartedMain] INFO  : Finished Spring Data repository scanning in 51 ms. Found 0 JPA repository interfaces.
+2025-04-24 14:09:00 [restartedMain] INFO  : Tomcat initialized with port 5002 (http)
+2025-04-24 14:09:00 [restartedMain] INFO  : Initializing ProtocolHandler ["http-nio-5002"]
+2025-04-24 14:09:00 [restartedMain] INFO  : Starting service [Tomcat]
+2025-04-24 14:09:00 [restartedMain] INFO  : Starting Servlet engine: [Apache Tomcat/10.1.36]
+2025-04-24 14:09:00 [restartedMain] INFO  : Initializing Spring embedded WebApplicationContext
+2025-04-24 14:09:00 [restartedMain] INFO  : Root WebApplicationContext: initialization completed in 2334 ms
+2025-04-24 14:09:01 [restartedMain] INFO  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-24 14:09:01 [restartedMain] INFO  : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-04-24 14:09:01 [restartedMain] INFO  : HHH000026: Second-level cache disabled
+2025-04-24 14:09:01 [restartedMain] INFO  : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-04-24 14:09:01 [restartedMain] INFO  : HikariPool-1 - Starting...
+2025-04-24 14:09:02 [restartedMain] INFO  : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2855a916
+2025-04-24 14:09:02 [restartedMain] INFO  : HikariPool-1 - Start completed.
+2025-04-24 14:09:02 [restartedMain] WARN  : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-04-24 14:09:02 [restartedMain] INFO  : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 17.0
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-04-24 14:09:04 [restartedMain] INFO  : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-04-24 14:09:04 [restartedMain] INFO  : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-24 14:09:04 [restartedMain] WARN  : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-04-24 14:09:05 [restartedMain] INFO  : LiveReload server is running on port 35729
+2025-04-24 14:09:05 [restartedMain] INFO  : Starting ProtocolHandler ["http-nio-5002"]
+2025-04-24 14:09:05 [restartedMain] INFO  : Tomcat started on port 5002 (http) with context path '/'
+2025-04-24 14:09:05 [restartedMain] INFO  : Started AraiBackendApplication in 7.835 seconds (process running for 8.822)
+2025-04-24 14:10:23 [http-nio-5002-exec-1] INFO  : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-24 14:10:23 [http-nio-5002-exec-1] INFO  : Initializing Servlet 'dispatcherServlet'
+2025-04-24 14:10:23 [http-nio-5002-exec-1] INFO  : Completed initialization in 3 ms
+2025-04-24 14:10:24 [http-nio-5002-exec-1] WARN  : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('u' (code 117)): was expecting double-quote to start field name]
+2025-04-24 14:12:10 [http-nio-5002-exec-2] WARN  : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('u' (code 117)): was expecting double-quote to start field name]
+2025-04-24 14:12:49 [http-nio-5002-exec-3] WARN  : CrearUsuarioDTO CrearUsuarioDTO[username=xd, nombre=Elias, apellido=ojeda, correo=metall65eli@gmai.com, password=12354698754, rol_id=1]
+2025-04-24 14:14:25 [SpringApplicationShutdownHook] INFO  : Commencing graceful shutdown. Waiting for active requests to complete
+2025-04-24 14:14:25 [tomcat-shutdown] INFO  : Graceful shutdown complete
+2025-04-24 14:14:25 [SpringApplicationShutdownHook] INFO  : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-24 14:14:25 [SpringApplicationShutdownHook] INFO  : HikariPool-1 - Shutdown initiated...
+2025-04-24 14:14:25 [SpringApplicationShutdownHook] INFO  : HikariPool-1 - Shutdown completed.

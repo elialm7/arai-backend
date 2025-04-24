@@ -58,7 +58,7 @@ public class Usuario {
     private List<PlaneamientoComentario> comentarios;
 
        // Un usuario tiene un único rol
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_rol_fk", nullable = false)
     private Rol rol;
 
