@@ -23,6 +23,9 @@ import jakarta.transaction.Transactional;
 @Transactional
 public class UsuarioRepository {
 
+    /**
+     * La gestion de transacciones se encarga spring boot
+     */
 
     @PersistenceContext
     private EntityManager manager;
@@ -62,18 +65,15 @@ public class UsuarioRepository {
      * Se encarga de agrear un usuario a la tabla usuarios
      * @param usuario
      */
-    public void agregarUsuario(Usuario usuario){
-
+    public boolean agregarUsuario(Usuario usuario){
         if(Objects.isNull(usuario)) {
             throw new NullPointerException("El usuario no puede ser nulo.");
         }
         try{
-            manager.getTransaction().begin();
             manager.persist(usuario);
-            manager.getTransaction().commit();
+            return true;
         }catch (Exception e){
-            if(manager.getTransaction().isActive())
-                manager.getTransaction().rollback();
+            return false;
         }
     }
 

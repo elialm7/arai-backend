@@ -27,8 +27,12 @@ public class UsuarioController {
     @PostMapping("/crearUsuario")
     public ResponseEntity<String> crearUsuario(@Valid @RequestBody CrearUsuarioDTO crearUsuarioDTO){
 
-        log.warn("CrearUsuarioDTO {}", crearUsuarioDTO);
-        return new ResponseEntity<>("Usuario creado :D", HttpStatus.CREATED);
+        log.debug("CrearUsuarioDTO {}", crearUsuarioDTO);
+        boolean succes = usuarioService.CrearUsuario(crearUsuarioDTO);
+        if(succes){
+            return new ResponseEntity<>("Usuario creado exitosamente", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Usuario no creado exitosamente", HttpStatus.BAD_REQUEST);
 
     }
 

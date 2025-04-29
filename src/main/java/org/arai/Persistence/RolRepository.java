@@ -10,6 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -32,12 +34,10 @@ public class RolRepository {
         logger.debug("Encontrando por id {}", id);
         try{
             Rol rol = null;
-            em.getTransaction().begin();
             rol = em.find(Rol.class, id);
             if(Objects.isNull(rol)){
                 logger.debug("Rol no encontrado {}", id);
             }
-            em.getTransaction().commit();
             return Optional.ofNullable(rol);
         }catch (NoResultException e){
             logger.debug("Se ha producido una excepcion intentando encontrar el error ; {}", e.getMessage(), e);
@@ -45,5 +45,19 @@ public class RolRepository {
         }
     }
 
+
+    public List<Rol> listarRoles(){
+
+        logger.debug("Listando todos los roles");
+        List<Rol> rols = new ArrayList<>();
+        try {
+         rols = em.createQuery("select r from Rol r").getResultList();
+         return rols;
+
+        } catch (Exception e) {
+            logger.error("Erro ao listar roles", e);
+        }
+        return rols;
+    }
 
 }
