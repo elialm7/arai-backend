@@ -1,7 +1,7 @@
 package org.arai.Adapters;
 
 import org.arai.Entities.Usuario;
-import org.arai.Model.CrearUsuarioDTO;
+import org.arai.Model.usuarioDTO.CrearUsuarioDTO;
 
 
 public class UsuarioAdapter {

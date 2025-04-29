@@ -1,4 +1,4 @@
-package org.arai.Model;
+package org.arai.Model.usuarioDTO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.*;

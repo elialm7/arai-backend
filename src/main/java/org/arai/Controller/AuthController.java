@@ -1,15 +1,14 @@
 package org.arai.Controller;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.arai.Adapters.UsuarioAdapter;
 import org.arai.Entities.Permiso;
 import org.arai.Entities.Usuario;
 import org.arai.Exceptions.UsuarioNoEncontradoException;
-import org.arai.Model.LoginResponseDTO;
-import org.arai.Model.LoginRequestDTO;
+import org.arai.Model.ErrorResponse.ErrorResponseDTO;
+import org.arai.Model.login.LoginResponseDTO;
+import org.arai.Model.login.LoginRequestDTO;
 import org.arai.Service.AuthService;
 import org.arai.Service.UsuarioService;
 import org.slf4j.Logger;
@@ -35,21 +34,28 @@ public class AuthController {
     private UsuarioService user_service;
 
 
-    //todo: manejar diferentas respuestas... LoginErrorResponseDTO
     @PostMapping("/login")
-    public ResponseEntity<LoginResponseDTO> login(@Valid @RequestBody LoginRequestDTO loginRequestDTO){
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequestDTO loginRequestDTO){
        try {
-           /*boolean authorized = auth_service.validaCredenciales(loginRequestDTO);
-           if(!authorized){
-               log.warn("credenciales invalidas, Usuario no autorizado: {}", loginRequestDTO.usename());
-               return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-           }*/
 
            Optional<Usuario> search_user_opt = user_service.obtenerUsuarioPorUsername(loginRequestDTO.usename());
+
+
            if(search_user_opt.isEmpty()){
-               return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+               return new ResponseEntity<>(
+                       new ErrorResponseDTO("Usuario no encontrado", HttpStatus.NOT_FOUND.value()),
+                       HttpStatus.NOT_FOUND
+               );
            }
            Usuario found_user = search_user_opt.get();
+
+
+           if(!auth_service.validarLogin(loginRequestDTO.password(), found_user.getPssword())){
+               return new ResponseEntity<>(
+                       new ErrorResponseDTO("Credenciales no validas", HttpStatus.UNAUTHORIZED.value()),
+                       HttpStatus.UNAUTHORIZED
+               );
+           }
 
            LoginResponseDTO loginResponseDTO = new LoginResponseDTO(
                    found_user.getNombre(),
@@ -63,7 +69,10 @@ public class AuthController {
 
        } catch (UsuarioNoEncontradoException e) {
            log.warn("Usuario no valido: {}", e.getMessage());
-           return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+           return new ResponseEntity<>(
+                   new ErrorResponseDTO("Usuario no Encontrado", HttpStatus.NOT_FOUND.value()),
+                   HttpStatus.NOT_FOUND
+           );
        }
     }
 

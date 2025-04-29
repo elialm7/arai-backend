@@ -18,4 +18,16 @@ public class PasswordHasher {
     public String hashPassword(String rawPassword) {
         return passwordEncoder.encode(rawPassword);
     }
+
+
+    /**
+     *
+     *
+     * @param rawPassword password en texto plano sin hashear
+     * @param hashedPassword password hasheado a user en la verificacion
+     * @return true si coincide, false si no coincide
+     */
+    public boolean matchesPassword(String plainPassword, String encryptedPassword) {
+        return passwordEncoder.matches(plainPassword, encryptedPassword);
+    }
 }

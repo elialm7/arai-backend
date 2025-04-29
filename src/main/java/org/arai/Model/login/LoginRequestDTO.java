@@ -1,4 +1,4 @@
-package org.arai.Model;
+package org.arai.Model.login;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

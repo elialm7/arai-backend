@@ -4,13 +4,12 @@ import org.arai.Adapters.UsuarioAdapter;
 import org.arai.Entities.Rol;
 import org.arai.Entities.Usuario;
 import org.arai.Exceptions.RoleNoEncontradoException;
-import org.arai.Model.CrearUsuarioDTO;
+import org.arai.Model.usuarioDTO.CrearUsuarioDTO;
 import org.arai.Persistence.RolRepository;
 import org.arai.Persistence.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 

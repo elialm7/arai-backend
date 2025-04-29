@@ -1,26 +1,15 @@
 package org.arai.Service;
-
-import org.arai.Entities.Usuario;
-import org.arai.Exceptions.UsuarioNoEncontradoException;
-import org.arai.Model.LoginRequestDTO;
-import org.arai.Persistence.UsuarioRepository;
 import org.arai.crypto.PasswordHasher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class AuthService {
 
     @Autowired
     private PasswordHasher  passwordHasher;
-
-    @Autowired
-    private UsuarioRepository usuarioRepository;
 
 
     private Logger logger = LoggerFactory.getLogger(AuthService.class);
@@ -35,18 +24,21 @@ public class AuthService {
      * @return
      */
     public String hashPassword(String rawPassword) {
+        logger.info("hashing password!!");
         return passwordHasher.hashPassword(rawPassword);
     }
 
     /**
-     * verifica que el password sin hashear sea igual al del que esta almacenado
-     * @param rawPassword
-     * @param hashedPassword
+     *
+     * @param user_password
+     * @param user_database_password
      * @return
      */
 
-    public boolean verifyPassword(String rawPassword, String hashedPassword) {
-        return passwordHasher.verifyPassword(hashedPassword, rawPassword);
+    public boolean  validarLogin(String user_password, String user_database_password) {
+        logger.info("Validando login!!");
+        return passwordHasher.matchesPassword(user_password, user_database_password);
     }
+
 
 }
