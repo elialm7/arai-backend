@@ -1,20 +1,32 @@
-# Usa una imagen oficial de OpenJDK
-FROM eclipse-temurin:17-jdk-jammy
+# ======== STAGE 1: Build ========
+FROM maven:3.9.6-eclipse-temurin-17 AS build
 
-# Directorio de trabajo dentro del contenedor
+# Set working directory inside build container
 WORKDIR /app
 
-# Copia el JAR (ajusta el nombre si es necesario)
-COPY target/arai-backend-0.0.1-SNAPSHOT.jar app.jar
+# Copy pom.xml and download dependencies first (cache optimization)
+COPY pom.xml .
+COPY src ./src
 
-# Carpeta para logs (se vincula con el host en el "docker run")
+# Build the project
+RUN mvn clean package -DskipTests
+
+# ======== STAGE 2: Runtime ========
+FROM eclipse-temurin:17-jdk-jammy
+
+# Set working directory inside runtime container
+WORKDIR /app
+
+# Copy the built JAR from the previous stage
+COPY --from=build /app/target/arai-backend-0.0.1-SNAPSHOT.jar app.jar
+
+# Create log folder and expose port
 RUN mkdir -p /app/logs
-
-# Puerto que expone la aplicación
 EXPOSE 5002
 
-# Punto de entrada (usa "exec" para mejor manejo de señales)
+# Optional volumes for logs and external config
+VOLUME ["/app/logs", "/app/.env.properties"]
+
+# Entrypoint
 ENTRYPOINT ["java", "-jar", "app.jar"]
 
-# Volumen para logs y archivo de configuración externo
-VOLUME ["/app/logs", "/app/.env.properties"]
