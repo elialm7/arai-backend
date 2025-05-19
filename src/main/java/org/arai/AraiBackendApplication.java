@@ -1,6 +1,5 @@
 package org.arai;
 
-import org.arai.Entities.Usuario;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

@@ -15,7 +15,9 @@ public record LoginResponseDTO(
         @JsonProperty("role")
         String rol,
         @JsonProperty("permisos")
-        List<String> permisos
+        List<String> permisos,
+        @JsonProperty("token")
+        String token
 ) {
 
 }

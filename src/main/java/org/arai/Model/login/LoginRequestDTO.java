@@ -8,8 +8,8 @@ import jakarta.validation.constraints.NotNull;
 public record LoginRequestDTO(
         @NotBlank(message = "El username no puede estar vacio")
         @NotNull(message = "El username no peude ser nulo")
-        @JsonProperty("username")
-        String usename,
+        @JsonProperty("cedula")
+        String cedula,
 
         @NotBlank(message = "El password no puede estar vacio")
         @NotNull(message = "El password no puede ser nulo")

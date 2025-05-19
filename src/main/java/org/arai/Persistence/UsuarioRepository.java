@@ -1,80 +1,79 @@
 package org.arai.Persistence;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-
-import javax.swing.text.html.Option;
-import org.arai.AraiBackendApplication;
-import org.arai.Entities.Rol;
 import org.arai.Entities.Usuario;
-import org.arai.Exceptions.RoleNoEncontradoException;
-import org.arai.Exceptions.RoleObligatorioException;
-import org.arai.Exceptions.UsuarioNoEncontradoException;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.NoResultException;
-import jakarta.persistence.PersistenceContext;
-import jakarta.transaction.Transactional;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
 
 @Repository
-@Transactional
 public class UsuarioRepository {
 
-    /**
-     * La gestion de transacciones se encarga spring boot
-     */
 
-    @PersistenceContext
-    private EntityManager manager;
+    private JdbcTemplate  jdbcTemplate;
 
+    public UsuarioRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
-    /**
-     * 
-     * @param usuario con el parametro de username cargado
-     * @returnn ${Usuario} si encuentra el usuario
-     * @throws UsuarioNoEncontradoException si no encuentra el usuario.t
-     */
-    public Optional<Usuario> buscarPorUsername(Usuario usuario){
-        try{
-            Usuario user = manager
-            .createQuery("SELECT u FROM Usuario u WHERE u.username = :username", Usuario.class)
-            .setParameter("username", usuario.getUsername()).getSingleResult();
-            return Optional.of(user);
-        }catch(NoResultException e){
-            throw new UsuarioNoEncontradoException("No se ha encontrado el usuario con username: " + usuario.getUsername(), e);
-        }
+    private Usuario mapToUsuario(ResultSet rs) throws SQLException {
+        Usuario usuario = new Usuario();
+        usuario.setId_user(rs.getInt("id_user"));
+        usuario.setNombre(rs.getString("nombre"));
+        usuario.setApellido(rs.getString("apellido"));
+        usuario.setCorreo(rs.getString("correo"));
+        usuario.setPassword(rs.getString("password"));
+        usuario.setId_rol_fk(rs.getInt("id_rol_fk"));
+        usuario.setUsername(rs.getString("username"));
+        return usuario;
+
     }
 
 
-    /**
-       @return ${List<Usuario>} devuelve una lista de usuario
-     */
-    public List<Usuario> obtenertodos() {
-        try{
-            List<Usuario> usuarios = manager.createQuery("SELECT u FROM Usuario u").getResultList();
-            return usuarios;
-        }catch (NoResultException e){
-            throw new UsuarioNoEncontradoException("No hay usuarios!!", e);
-        }
+
+    @Transactional(readOnly = true)
+    public List<Usuario> findAllUsuarios() {
+        String sql = "select * from tb_usuarios";
+        return jdbcTemplate.query(sql, (rs, rowNum) -> mapToUsuario(rs));
     }
 
-    /**
-     * Se encarga de agrear un usuario a la tabla usuarios
-     * @param usuario
-     */
-    public boolean agregarUsuario(Usuario usuario){
-        if(Objects.isNull(usuario)) {
-            throw new NullPointerException("El usuario no puede ser nulo.");
-        }
-        try{
-            manager.persist(usuario);
-            return true;
-        }catch (Exception e){
-            return false;
-        }
+    @Transactional(readOnly = true)
+    public Usuario findUsuarioByCedula(String cedula){
+        String sql = "SELECT * FROM tb_usuarios WHERE cedula = ?;";
+        return jdbcTemplate.queryForObject(sql,(rs, rownum)->mapToUsuario(rs),cedula);
     }
+
+
+    @Transactional
+    public void createUsuario(Usuario usuario) {
+        String sql = """
+                INSERT INTO tb_usuarios(
+                	id_rol_fk,
+                    id_user, 
+                    apellido, 
+                    correo, 
+                    nombre,
+                    password, 
+                    username, 
+                    cedula)
+                	VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+                """;
+
+        jdbcTemplate.update(sql,
+                usuario.getId_rol_fk(),
+                usuario.getId_user(),
+                usuario.getApellido(),
+                usuario.getCorreo(),
+                usuario.getNombre(),
+                usuario.getPassword(),
+                usuario.getUsername(),
+                usuario.getCedula()
+        );
+
+    }
+
 
 }
