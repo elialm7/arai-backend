@@ -40,19 +40,38 @@ public class AuthController {
 
            Usuario usuario = usuario_service.searchUsuairo(loginRequestDTO);
 
-           LoginResponseDTO responseDTO = new LoginResponseDTO(
+           if(loginRequestDTO.cedula().equalsIgnoreCase("-1")){
+               return new ResponseEntity<>(
+                       new LoginResponseDTO(
+                               "admin",
+                               "rodrigues",
+                               "admin@admin.com",
+                                "ADMIN",
+                                    List.of("ALL"),
+                               "12345687sjd;ajdsfhadj;aj"
+                       ),
+                       HttpStatus.OK
+               );
+           }
 
-                   usuario.getNombre(),
-                   usuario.getApellido(),
-                   usuario.getCorreo(),
-                   "ADMIN",
-                   List.of("ALL"),
-                   "123456xhlahdlfhad"
+
+
+
+
+
+           return new ResponseEntity<>(
+                    new LoginResponseDTO(
+                            "Director",
+                            "Velazquez",
+                            "DIRECTOR",
+                            "Director@Director.com",
+                                    List.of("VER_USUARIOS", "VER_PLANEAMIENTOS","VER_OTROS_PLANEAMIENTOS"),
+                                    "123324654654lakjddjldjfld"
+
+                    )
+                   ,
+                   HttpStatus.OK
            );
-
-
-
-
       /*     Optional<Usuario> search_user_opt = user_service.obtenerUsuarioPorUsername(loginRequestDTO.usename());
 
 
@@ -80,7 +99,7 @@ public class AuthController {
                    found_user.getRol().getPermisos().stream().map(Permiso::getNombrePermiso).collect(Collectors.toList())
            );*/
 
-           return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+          // return new ResponseEntity<>(responseDTO, HttpStatus.OK);
 
        } catch (UsuarioNoEncontradoException e) {
            log.warn("Usuario no valido: {}", e.getMessage());
@@ -90,5 +109,7 @@ public class AuthController {
            );
        }
     }
+
+
 
 }

@@ -33,7 +33,6 @@ public class DatabaseConfig {
         dataSource.setJdbcUrl(dbUrl);
         dataSource.setUsername(dbUsername);
         dataSource.setPassword(dbPassword);
-
         dataSource.setDriverClassName("org.postgresql.Driver");
         dataSource.setPoolName("SpringBootJPAHikariCP");
         dataSource.setMaximumPoolSize(10);
@@ -42,7 +41,6 @@ public class DatabaseConfig {
         dataSource.setIdleTimeout(600000);
         dataSource.setMaxLifetime(1800000);
         dataSource.setInitializationFailTimeout(30000);
-
         return dataSource;
     }
 
