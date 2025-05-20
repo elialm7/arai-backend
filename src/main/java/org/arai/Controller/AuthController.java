@@ -59,8 +59,8 @@ public class AuthController {
                        new LoginResponseDTO(
                                "Director",
                                "Velazquez",
-                               "DIRECTOR",
                                "Director@Director.com",
+                               "DIRECTOR",
                                List.of("VER_USUARIOS", "VER_PLANEAMIENTOS","VER_OTROS_PLANEAMIENTOS"),
                                "123324654654lakjddjldjfld"
 
@@ -74,8 +74,8 @@ public class AuthController {
                    new LoginResponseDTO(
                            "Director",
                            "Velazquez",
-                           "DOCENTE",
                            "DOCENTE@DOCENTE.com",
+                           "DOCENTE",
                            List.of("VER_USUARIOS", "VER_PLANEAMIENTOS"),
                            "123324654654lakjddjldjfld"
 
