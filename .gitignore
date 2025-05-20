@@ -38,3 +38,5 @@ build/
 nb-configuration.xml
 jshell.history
 META-INF/
+
+/logs/
