@@ -52,26 +52,44 @@ public class AuthController {
                        ),
                        HttpStatus.OK
                );
+           }else if(loginRequestDTO.cedula().equalsIgnoreCase("0")){
+
+
+               return new ResponseEntity<>(
+                       new LoginResponseDTO(
+                               "Director",
+                               "Velazquez",
+                               "DIRECTOR",
+                               "Director@Director.com",
+                               List.of("VER_USUARIOS", "VER_PLANEAMIENTOS","VER_OTROS_PLANEAMIENTOS"),
+                               "123324654654lakjddjldjfld"
+
+                       )
+                       ,
+                       HttpStatus.OK
+               );
            }
 
-
-
-
-
-
            return new ResponseEntity<>(
-                    new LoginResponseDTO(
-                            "Director",
-                            "Velazquez",
-                            "DIRECTOR",
-                            "Director@Director.com",
-                                    List.of("VER_USUARIOS", "VER_PLANEAMIENTOS","VER_OTROS_PLANEAMIENTOS"),
-                                    "123324654654lakjddjldjfld"
+                   new LoginResponseDTO(
+                           "Director",
+                           "Velazquez",
+                           "DOCENTE",
+                           "DOCENTE@DOCENTE.com",
+                           List.of("VER_USUARIOS", "VER_PLANEAMIENTOS"),
+                           "123324654654lakjddjldjfld"
 
-                    )
+                   )
                    ,
                    HttpStatus.OK
            );
+
+
+
+
+
+
+
       /*     Optional<Usuario> search_user_opt = user_service.obtenerUsuarioPorUsername(loginRequestDTO.usename());
 
 
