@@ -20,7 +20,7 @@ public class UsuarioRepository {
     }
 
     private Usuario mapToUsuario(ResultSet rs) throws SQLException {
-        Usuario usuario = new Usuario();
+        var usuario = new Usuario();
         usuario.setId_user(rs.getInt("id_user"));
         usuario.setNombre(rs.getString("nombre"));
         usuario.setApellido(rs.getString("apellido"));
@@ -32,8 +32,6 @@ public class UsuarioRepository {
 
     }
 
-
-
     @Transactional(readOnly = true)
     public List<Usuario> findAllUsuarios() {
         String sql = "select * from tb_usuarios";
@@ -44,6 +42,26 @@ public class UsuarioRepository {
     public Usuario findUsuarioByCedula(String cedula){
         String sql = "SELECT * FROM tb_usuarios WHERE cedula = ?;";
         return jdbcTemplate.queryForObject(sql,(rs, rownum)->mapToUsuario(rs),cedula);
+    }
+
+    @Transactional()
+    public Integer updateUsuarioById(Usuario usuario){
+
+        String sql  = """
+                    UPDATE tb_usuarios
+                    	SET id_rol_fk=?, apellido=?, correo=?, nombre=?, password=?, username=?
+                    	WHERE id_user = ?;
+                """;
+        return jdbcTemplate.update(
+                sql,
+                usuario.getId_rol_fk(),
+                usuario.getApellido(),
+                usuario.getCorreo(),
+                usuario.getNombre(),
+                usuario.getPassword(),
+                usuario.getUsername(),
+                usuario.getId_user()
+                );
     }
 
 

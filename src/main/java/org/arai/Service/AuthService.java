@@ -16,7 +16,4 @@ public class AuthService {
     public boolean  validarLogin(String user_password, String user_database_password) {
         return passwordHasher.matchesPassword(user_password, user_database_password);
     }
-
-
-
 }
