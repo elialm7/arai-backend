@@ -12,5 +12,6 @@ public class Token {
     private Date expiracion;
     private String tipo_token;
     private String token;
+    private Integer id_user_fk;
 
 }

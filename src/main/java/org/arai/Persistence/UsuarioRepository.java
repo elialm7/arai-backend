@@ -1,6 +1,8 @@
 package org.arai.Persistence;
 
 import org.arai.Entities.Usuario;
+import org.arai.Exceptions.UsuarioNoEncontradoException;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,9 +41,13 @@ public class UsuarioRepository {
     }
 
     @Transactional(readOnly = true)
-    public Usuario findUsuarioByCedula(String cedula){
-        String sql = "SELECT * FROM tb_usuarios WHERE cedula = ?;";
-        return jdbcTemplate.queryForObject(sql,(rs, rownum)->mapToUsuario(rs),cedula);
+    public Usuario findUsuarioByCedula(String cedula) throws UsuarioNoEncontradoException {
+        try {
+            String sql = "SELECT * FROM tb_usuarios WHERE cedula = ?;";
+            return jdbcTemplate.queryForObject(sql, (rs, rownum) -> mapToUsuario(rs), cedula);
+        } catch (DataAccessException e) {
+            throw new UsuarioNoEncontradoException("No se encontro el usuario", e);
+        }
     }
 
     @Transactional()
