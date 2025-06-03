@@ -2,6 +2,8 @@ package org.arai.Persistence;
 
 import org.arai.Entities.Usuario;
 import org.arai.Exceptions.UsuarioNoEncontradoException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -9,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -16,7 +19,7 @@ public class UsuarioRepository {
 
 
     private JdbcTemplate  jdbcTemplate;
-
+    private Logger log = LoggerFactory.getLogger(UsuarioRepository.class);
     public UsuarioRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
@@ -36,8 +39,14 @@ public class UsuarioRepository {
 
     @Transactional(readOnly = true)
     public List<Usuario> findAllUsuarios() {
-        String sql = "select * from tb_usuarios";
-        return jdbcTemplate.query(sql, (rs, rowNum) -> mapToUsuario(rs));
+        List<Usuario> usuarios = new ArrayList<>();;
+        try {
+            String sql = "select * from tb_usuarios";
+            usuarios = jdbcTemplate.query(sql, (rs, rowNum) -> mapToUsuario(rs));
+        } catch (DataAccessException e) {
+            log.error(e.getMessage());
+        }
+        return usuarios;
     }
 
     @Transactional(readOnly = true)
@@ -52,50 +61,62 @@ public class UsuarioRepository {
 
     @Transactional()
     public Integer updateUsuarioById(Usuario usuario){
-
-        String sql  = """
+        try {
+            String sql = """
                     UPDATE tb_usuarios
                     	SET id_rol_fk=?, apellido=?, correo=?, nombre=?, password=?, username=?
                     	WHERE id_user = ?;
                 """;
-        return jdbcTemplate.update(
-                sql,
-                usuario.getId_rol_fk(),
-                usuario.getApellido(),
-                usuario.getCorreo(),
-                usuario.getNombre(),
-                usuario.getPassword(),
-                usuario.getUsername(),
-                usuario.getId_user()
-                );
+            return jdbcTemplate.update(
+                    sql,
+                    usuario.getId_rol_fk(),
+                    usuario.getApellido(),
+                    usuario.getCorreo(),
+                    usuario.getNombre(),
+                    usuario.getPassword(),
+                    usuario.getUsername(),
+                    usuario.getId_user()
+            );
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return -1;
+        }
     }
 
 
     @Transactional
     public void createUsuario(Usuario usuario) {
-        String sql = """
-                INSERT INTO tb_usuarios(
-                	id_rol_fk,
-                    id_user, 
-                    apellido, 
-                    correo, 
-                    nombre,
-                    password, 
-                    username, 
-                    cedula)
-                	VALUES (?, ?, ?, ?, ?, ?, ?, ?);
-                """;
+        try {
+                String sql = """
+                    
+                        INSERT INTO tb_usuarios(
+                        id_rol_fk,
+                        id_user, 
+                        apellido, 
+                        correo, 
+                        nombre,
+                        password, 
+                        username, 
+                        cedula)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+       
+    
+                   """;
 
-        jdbcTemplate.update(sql,
-                usuario.getId_rol_fk(),
-                usuario.getId_user(),
-                usuario.getApellido(),
-                usuario.getCorreo(),
-                usuario.getNombre(),
-                usuario.getPassword(),
-                usuario.getUsername(),
-                usuario.getCedula()
-        );
+            jdbcTemplate.update(sql,
+                    usuario.getId_rol_fk(),
+                    usuario.getId_user(),
+                    usuario.getApellido(),
+                    usuario.getCorreo(),
+                    usuario.getNombre(),
+                    usuario.getPassword(),
+                    usuario.getUsername(),
+                    usuario.
+                getCedula()
+            );
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
 
     }
 

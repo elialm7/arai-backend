@@ -13,24 +13,9 @@ import java.util.Objects;
 @Service
 public class UsuarioService {
 
-
     private final UsuarioRepository usuarioRepository;
-
     public UsuarioService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
-    }
-
-
-
-    public Usuario searchUsuairo(LoginRequestDTO loginRequestDTO) throws UsuarioNoEncontradoException{
-
-        Usuario userResult = new Usuario();//usuarioRepository.findUsuarioByCedula(loginRequestDTO.cedula());
-
-        if(Objects.isNull(userResult)){
-            throw new UsuarioNoEncontradoException("Usuario no encontrado");
-        }
-
-        return userResult;
     }
 
 

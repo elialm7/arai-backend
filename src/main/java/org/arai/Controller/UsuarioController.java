@@ -14,27 +14,7 @@ public class UsuarioController {
 
 
 
-    private Logger log = LoggerFactory.getLogger(UsuarioController.class);
 
-
-
-    @PostMapping("/crearUsuario")
-    public ResponseEntity<?> crearUsuario(@Valid @RequestBody CrearUsuarioDTO crearUsuarioDTO){
-
-
-
-        return null;
-    }
-
-
-    @GetMapping
-    public ResponseEntity<?> listarUsuario(){
-
-
-
-        return null;
-
-    }
 
 }
 
