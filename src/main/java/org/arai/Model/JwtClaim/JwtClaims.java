@@ -1,4 +1,4 @@
-package org.arai.Model.jwt;
+package org.arai.Model.JwtClaim;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

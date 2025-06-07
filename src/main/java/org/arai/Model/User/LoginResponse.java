@@ -1,4 +1,4 @@
-package org.arai.Model.login;
+package org.arai.Model.User;
 
 import java.util.List;
 
