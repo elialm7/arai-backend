@@ -61,7 +61,9 @@ public class JwtManager {
             return new JwtClaims(
                     claims.get("user_id", String.class),
                     claims.getIssuedAt().toInstant(),
-                    claims.getExpiration().toInstant()
+                    claims.getExpiration().toInstant(),
+                    "ip  prueba",
+                    "user prueba"
             );
         } catch (ExpiredJwtException e) {
             throw new RuntimeException("Token expirado", e);
