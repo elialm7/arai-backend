@@ -4,6 +4,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.apache.coyote.Request;
 import org.arai.Model.JwtClaim.JwtClaims;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -41,6 +42,10 @@ public class JwtAuthFilter  extends OncePerRequestFilter {
         try{
             JwtClaims claims = jwtManager.parseAndValidateToken(token);
             request.setAttribute("jwtClaims", claims);
+            String ipAddress = RequestInfo.getClientIp(request);
+            String user_agent = RequestInfo.getUserAgent(request);
+            claims.setIp_address(ipAddress);
+            claims.setUser_agent(user_agent);
             filterChain.doFilter(request, response);
         } catch (Exception e) {
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Error de autenticacion!!");

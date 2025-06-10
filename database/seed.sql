@@ -15,5 +15,5 @@ INSERT INTO tb_rol_permisos(id_rol_fk, id_permiso_fk) VALUES (1,1)
 INSERT INTO tb_usuarios(id_rol_fk, nombre, apellido, username, password, correo, cedula) VALUES (1,'ADMIN', 'ADMIN', 'ADMIN', 'ADMIN', 'ADMIN@hakesystems.com', 'NO APLICA')
                                                                                          ON CONFLICT(username, correo, cedula) DO NOTHING;
 
---OTHER INITIAL SEEDING HERE ---
+--OTHER INITIAL SEEDING HERE ---88
 

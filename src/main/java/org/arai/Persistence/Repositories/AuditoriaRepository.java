@@ -26,18 +26,18 @@ public class AuditoriaRepository {
     }
 
     private Auditoria mapToAuditoria(ResultSet rs, int rownum) throws SQLException {
-        var usuario = new Auditoria();
-        usuario.setAuditoria_id(rs.getInt("auditoria_id"));
-        usuario.setUser_id(rs.getInt("user_id"));
-        usuario.setOperacion(rs.getString("operacion"));
-        usuario.setTimestamp(rs.getTimestamp("timestamp"));
-        usuario.setNombre_tabla(rs.getString("nombre_tabla"));
-        usuario.setFila_tabla(rs.getInt("fila_tabla"));
-        usuario.setNuevo_datos(rs.getString("nuevos_datos"));
-        usuario.setViejos_datos(rs.getString("viejos_datos"));
-        usuario.setIp_address(rs.getString("ip_address"));
-        usuario.setUser_agent(rs.getString("user_agent"));
-        return usuario;
+        var auditoria = new Auditoria();
+        auditoria.setAuditoria_id(rs.getInt("auditoria_id"));
+        auditoria.setUser_id(rs.getInt("user_id"));
+        auditoria.setOperacion(rs.getString("operacion"));
+        auditoria.setTimestamp(rs.getTimestamp("timestamp"));
+        auditoria.setNombre_tabla(rs.getString("nombre_tabla"));
+        auditoria.setFila_tabla(rs.getInt("fila_tabla"));
+        auditoria.setNuevo_datos(rs.getString("nuevos_datos"));
+        auditoria.setViejos_datos(rs.getString("viejos_datos"));
+        auditoria.setIp_address(rs.getString("ip_address"));
+        auditoria.setUser_agent(rs.getString("user_agent"));
+        return auditoria;
     }
 
     /**
