@@ -17,6 +17,7 @@ jobs:
     if: github.base_ref == 'main' && github.head_ref == 'dev'
     runs-on: ubuntu-latest
 
+    concurrency: testing
     env:
       DB_URL: ${{ secrets.DB_URL }}
       DB_USERNAME: ${{ secrets.DB_USERNAME }}
