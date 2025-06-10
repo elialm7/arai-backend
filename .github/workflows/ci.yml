@@ -19,10 +19,12 @@ jobs:
 
     concurrency: testing
     env:
-      DB_URL: ${{ secrets.DB_URL }}
-      DB_USERNAME: ${{ secrets.DB_USERNAME }}
-      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-      JWT_KEY: ${{ secrets.JWT_KEY }}
+        DB_USERNAME: ${{ secrets.DB_USERNAME }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        DB_URL: ${{ secrets.DB_URL }}
+        PROFILE: ${{ secrets.PROFILE }}
+        DDL: ${{ secrets.DDL }}
+        JWT_KEY: ${{ secrets.JWT_KEY }}
 
     steps:
       - name: Checkout code
@@ -33,6 +35,13 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
+
+      - name: create env
+        run: |
+          echo "DB_USERNAME=${{ secrets.DB_USERNAME }}" >> .env.properties
+          echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env.properties
+          echo "PROFILE=${{ secrets.PROFILE }}" >> .env.properties
+          echo "JWT_KEY=${{ secrets.JWT_KEY }}" >> .env.properties
 
       - name: Build and run tests
         run: mvn clean test
