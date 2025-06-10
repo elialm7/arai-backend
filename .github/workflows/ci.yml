@@ -35,8 +35,6 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-      - name: Show .env.properties content (for debugging)
-        run: cat .env.properties
 
       - name: create env
         run: |
@@ -44,6 +42,7 @@ jobs:
           echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env.properties
           echo "PROFILE=${{ secrets.PROFILE }}" >> .env.properties
           echo "JWT_KEY=${{ secrets.JWT_KEY }}" >> .env.properties
-
+      - name: Show .env.properties content (for debugging)
+        run: cat .env.properties
       - name: Build and run tests
         run: mvn clean test
