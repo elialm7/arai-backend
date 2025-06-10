@@ -35,6 +35,8 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
+      - name: Show .env.properties content (for debugging)
+        run: cat .env.properties
 
       - name: create env
         run: |
