@@ -1,0 +1,37 @@
+name: CI - Spring Boot with Java 21
+
+on:
+  pull_request:
+    branches:
+      - main
+    # Solo cuando el PR viene de dev
+    paths-ignore:
+      - '**.md'
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  build-and-test:
+    if: github.base_ref == 'main' && github.head_ref == 'dev'
+    runs-on: ubuntu-latest
+
+    env:
+      DB_URL: ${{ secrets.DB_URL }}
+      DB_USERNAME: ${{ secrets.DB_USERNAME }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      JWT_KEY: ${{ secrets.JWT_KEY }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Build and run tests
+        run: mvn clean test
