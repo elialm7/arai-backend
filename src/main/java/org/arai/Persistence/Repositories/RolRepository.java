@@ -29,6 +29,13 @@ public class RolRepository {
         return rol;
     }
 
+    /**
+     * Recupera todos los registros de la tabla `tb_roles`.
+     *
+     * @return Una lista de objetos `Rol` que representan todos los registros
+     *         en la tabla `tb_roles`. Si ocurre un error, se devuelve una lista vacía.
+     * @throws DataAccessException Si ocurre un error al acceder a la base de datos.
+     */
     @Transactional
     public List<Rol> findAllRoles() {
         List<Rol> roles = new ArrayList<>();

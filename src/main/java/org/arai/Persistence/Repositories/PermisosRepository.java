@@ -30,6 +30,13 @@ public class PermisosRepository {
         return permiso;
     }
 
+    /**
+     * Recupera todos los registros de la tabla `tb_roles`.
+     *
+     * @return Una lista de objetos `Rol` que representan todos los registros
+     *         en la tabla `tb_roles`. Si ocurre un error, se devuelve una lista vacía.
+     * @throws DataAccessException Si ocurre un error al acceder a la base de datos.
+     */
     @Transactional(readOnly = true)
     public List<Permiso> findAllPermisos(){
         List<Permiso> permisos = new ArrayList<>();
