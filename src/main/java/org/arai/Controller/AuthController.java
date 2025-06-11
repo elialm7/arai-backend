@@ -7,8 +7,11 @@ import org.arai.Model.ErrorResponse.ErrorResponse;
 import org.arai.Model.JwtClaim.JwtClaims;
 import org.arai.Model.User.LoginRequest;
 import org.arai.Model.User.LoginResponse;
+import org.arai.Persistence.Entities.Usuario;
+import org.arai.Persistence.QueryResults.UsuarioPermisoResult;
 import org.arai.Service.AuthService;
 import org.arai.Service.UsuarioService;
+import org.arai.Utilities.Pair;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -35,18 +38,19 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginRequest loginRequestDTO){
        try {
-           String token = auth_service.token_login(loginRequestDTO.cedula(), loginRequestDTO.password());
+           Pair<String, Usuario> tokenUser = auth_service.token_login_with_user(loginRequestDTO.cedula(), loginRequestDTO.password());
+           log.info("Usuario autenticado: {}", tokenUser.second().getId_user());
+           UsuarioPermisoResult usuarioPermisos = usuario_service.buscarPermisosPorUsuario(tokenUser.second().getId_user());
+           //todo: call auditoria service to log the login event
            return new ResponseEntity<>(
                    new LoginResponse(
-                           "Director",
-                           "Velazquez",
-                           "DOCENTE@DOCENTE.com",
-                           "DOCENTE",
-                           List.of("VER_USUARIOS", "VER_PLANEAMIENTOS"),
-                           token
-
-                   )
-                   ,
+                           tokenUser.second().getNombre(),
+                           tokenUser.second().getApellido(),
+                           tokenUser.second().getCorreo(),
+                           usuarioPermisos.getNombreRol(),
+                           usuarioPermisos.getPermisos(),
+                           tokenUser.first()
+                   ),
                    HttpStatus.OK
            );
 

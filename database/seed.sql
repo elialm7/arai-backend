@@ -11,7 +11,7 @@ INSERT INTO tb_roles(nombre_rol) VALUES('ADMIN')
 --ADMIN-SEED--
 INSERT INTO tb_rol_permisos(id_rol_fk, id_permiso_fk) VALUES (1,1)
                                                       ON CONFLICT (id_rol_fk, id_permiso_fk) DO NOTHING ;
-INSERT INTO tb_usuarios(id_rol_fk, nombre, apellido, username, password, correo, cedula) VALUES (1,'ADMIN', 'ADMIN', 'ADMIN', 'ADMIN', 'ADMIN@hakesystems.com', 'NO APLICA')
+INSERT INTO tb_usuarios(id_rol_fk, nombre, apellido, username, password, correo, cedula) VALUES (1,'ADMIN', 'ADMIN', 'ADMIN', 'ADMIN', 'ADMIN@hakesystems.com', '12332111')
                                                                                          ON CONFLICT(username, correo, cedula) DO NOTHING;
 
 --OTHER INITIAL SEEDING HERE ---

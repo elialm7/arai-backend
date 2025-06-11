@@ -5,6 +5,7 @@ import org.arai.Exceptions.UsuarioNoEncontradoException;
 import org.arai.Persistence.Repositories.UsuarioRepository;
 import org.arai.Security.PasswordHasher;
 import org.arai.Security.JwtManager;
+import org.arai.Utilities.Pair;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,6 +29,16 @@ public class AuthService {
             throw new IncorrectPasswordUsuarioException("Credenciales invalidas, password incorrecto");
         }
         return jwtManager.generateToken(usuario.getId_user().toString());
+    }
+    public Pair<String, Usuario> token_login_with_user(String cedula, String password) throws
+            UsuarioNoEncontradoException,
+            IncorrectPasswordUsuarioException {
+        Usuario usuario =  usuarioRepository.findUsuarioByCedula(cedula);
+        if(!usuario.getPassword().equalsIgnoreCase(password)){
+            throw new IncorrectPasswordUsuarioException("Credenciales invalidas, password incorrecto");
+        }
+        String token = jwtManager.generateToken(usuario.getId_user().toString());
+        return new Pair<>(token, usuario);
     }
 
     public String hashPassword(String rawPassword) {
