@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
-public class AuditoriaTest {
+public class AuditoriaRepositoryTest {
     @Autowired
     private AuditoriaRepository auditoriaRepository;
 
