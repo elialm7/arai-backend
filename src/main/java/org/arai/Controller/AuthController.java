@@ -68,18 +68,5 @@ public class AuthController {
        }
     }
 
-    @GetMapping("/pruebaToken")
-    public ResponseEntity<?>  testToken(
-            @JwtClaim JwtClaims claims
-            ){
-
-
-        log.info("Token: {}", claims);
-
-        return new ResponseEntity<>("Token valido", HttpStatus.OK);
-
-
-
-    }
 
 }
