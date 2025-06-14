@@ -13,8 +13,8 @@ public class Auditoria {
     private Date timestamp;
     private String nombre_tabla;
     private Integer fila_tabla;
-    private String nuevos_datos_json;
-    private String viejos_datos_json;
+    private String nuevo_datos;
+    private String viejos_datos;
     private String ip_address;
     private String user_agent;
 

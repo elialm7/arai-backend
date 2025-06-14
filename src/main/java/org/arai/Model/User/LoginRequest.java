@@ -15,7 +15,5 @@ public record LoginRequest(
         @NotNull(message = "El password no puede ser nulo")
         @JsonProperty("password")
         String password
-) {
-
-}
+) {}
 
