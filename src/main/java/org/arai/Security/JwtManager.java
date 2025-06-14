@@ -5,7 +5,7 @@ import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import jakarta.annotation.PostConstruct;
-import org.arai.Model.JwtClaim.JwtClaims;
+import org.arai.Model.JwtClaim.JwtAudit;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import io.jsonwebtoken.security.*;
@@ -45,7 +45,7 @@ public class JwtManager {
                 .compact();
     }
 
-    public JwtClaims parseAndValidateToken(String token) {
+    public JwtAudit parseAndValidateToken(String token) {
         try {
             Claims claims = Jwts.parser()
                     .setSigningKey(secretKey)
@@ -58,7 +58,7 @@ public class JwtManager {
                 throw new ExpiredJwtException(null, claims, "Token expirado");
             }
 
-            return new JwtClaims(
+            return new JwtAudit(
                     claims.get("user_id", String.class),
                     claims.getIssuedAt().toInstant(),
                     claims.getExpiration().toInstant()
