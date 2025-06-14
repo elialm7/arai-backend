@@ -8,6 +8,8 @@ import org.arai.Security.JwtManager;
 import org.arai.Utilities.Pair;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class AuthService {
 
@@ -20,31 +22,25 @@ public class AuthService {
         this.passwordHasher = passwordHasher;
         this.jwtManager = jwtManager;
     }
-
-    public String token_login(String cedula, String password) throws
-            UsuarioNoEncontradoException,
-            IncorrectPasswordUsuarioException {
-        Usuario usuario =  usuarioRepository.findUsuarioByCedula(cedula);
-        if(!usuario.getPassword().equalsIgnoreCase(password)){
-            throw new IncorrectPasswordUsuarioException("Credenciales invalidas, password incorrecto");
-        }
-        return jwtManager.generateToken(usuario.getId_user().toString());
-    }
     public Pair<String, Usuario> token_login_with_user(String cedula, String password) throws
-            UsuarioNoEncontradoException,
             IncorrectPasswordUsuarioException {
-        Usuario usuario =  usuarioRepository.findUsuarioByCedula(cedula);
-        if(!usuario.getPassword().equalsIgnoreCase(password)){
+        Optional<Usuario> usuario =  usuarioRepository.findUsuarioByCedula(cedula);
+        if(usuario.isEmpty()){
+            throw new UsuarioNoEncontradoException("Usuario no encontrado con la cedula: " + cedula);
+        }
+        if(!usuario.get().getPassword().equalsIgnoreCase(password)){
             throw new IncorrectPasswordUsuarioException("Credenciales invalidas, password incorrecto");
         }
-        String token = jwtManager.generateToken(usuario.getId_user().toString());
-        return new Pair<>(token, usuario);
+        String token = jwtManager.generateToken(usuario.get().getId_user().toString());
+        return new Pair<>(token, usuario.get());
     }
 
+    @Deprecated
     public String hashPassword(String rawPassword) {
         return passwordHasher.hashPassword(rawPassword);
     }
 
+    @Deprecated
     public boolean  validarLogin(String user_password, String user_database_password) {
         return passwordHasher.matchesPassword(user_password, user_database_password);
     }

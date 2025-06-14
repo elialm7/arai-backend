@@ -93,6 +93,12 @@
 			<artifactId>jjwt-jackson</artifactId>
 			<version>0.12.5</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.vavr/vavr -->
+		<dependency>
+			<groupId>io.vavr</groupId>
+			<artifactId>vavr</artifactId>
+			<version>0.10.6</version>
+		</dependency>
 	</dependencies>
 
 	<build>

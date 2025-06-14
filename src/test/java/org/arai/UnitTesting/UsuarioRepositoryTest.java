@@ -91,9 +91,9 @@ public class UsuarioRepositoryTest {
         assertNotNull(id);
         assertTrue(id > 0);
 
-        Usuario encontrado = usuarioRepository.findUsuarioByCedula("1122334455");
-        assertNotNull(encontrado);
-        assertEquals("Pedro", encontrado.getNombre());
+        Optional<Usuario> encontrado = usuarioRepository.findUsuarioByCedula("1122334455");
+        assertNotNull(encontrado.get());
+        assertEquals("Pedro", encontrado.get().getNombre());
     }
 
     @Test
@@ -112,7 +112,12 @@ public class UsuarioRepositoryTest {
         System.out.println(usuarioPermisoResult.getPermisos());
     }
 
-
-
+    @Test
+    void testUsuarioBatchfind(){
+        List<Usuario> usuarios = usuarioRepository.findAllUsuariosBatch(0, 10);
+        assertNotNull(usuarios);
+        assertTrue(usuarios.size() <= 10);
+        usuarios.forEach(System.out::println);
+    }
 
 }

@@ -1,11 +1,14 @@
 package org.arai.Persistence.Repositories;
 
+import io.vavr.control.Try;
+import org.arai.Exceptions.DatabaseException;
 import org.arai.Persistence.Entities.Usuario;
 import org.arai.Exceptions.UsuarioNoEncontradoException;
 import org.arai.Persistence.QueryResults.UsuarioPermisoResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
@@ -39,6 +42,7 @@ public class UsuarioRepository {
         usuario.setPassword(rs.getString("password"));
         usuario.setId_rol_fk(rs.getInt("id_rol_fk"));
         usuario.setUsername(rs.getString("username"));
+        usuario.setCedula(rs.getString("cedula"));
         return usuario;
 
     }
@@ -70,24 +74,48 @@ public class UsuarioRepository {
     }
 
     /**
-     * Busca un usuario en la base de datos utilizando su cédula como criterio de búsqueda.
+     * Recupera un lote de usuarios de la base de datos, paginando los resultados.
      *
-     * @param cedula La cédula del usuario que se desea buscar.
-     * @return Un objeto `Usuario` que contiene los datos del usuario encontrado.
-     * @throws UsuarioNoEncontradoException Si no se encuentra un usuario con la cédula proporcionada
-     *                                      o si ocurre un error al acceder a la base de datos.
+     * @param offset El desplazamiento inicial para la paginación (número de filas a omitir).
+     * @param limit  El número máximo de usuarios a recuperar.
+     * @return Una lista de objetos `Usuario` que contiene los datos de los usuarios recuperados.
+     *         Si ocurre un error al acceder a la base de datos, se devuelve una lista vacía.
      */
-    @Transactional(readOnly = true)
-    public Usuario findUsuarioByCedula(String cedula) throws UsuarioNoEncontradoException {
+    public List<Usuario> findAllUsuariosBatch(Integer offset, Integer limit) {
+        List<Usuario> usuarios = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM tb_usuarios WHERE cedula = ?;";
-            return jdbcTemplate.queryForObject(sql, (rs, rownum) -> mapToUsuario(rs), cedula);
+            String sql = "SELECT * FROM tb_usuarios ORDER BY id_user LIMIT ? OFFSET ?;";
+            usuarios = jdbcTemplate.query(sql, (rs, rowNum) -> mapToUsuario(rs), limit, offset);
+        }catch (EmptyResultDataAccessException e) {
+            log.warn("No se encontraron usuarios en la base de datos para el offset {} y limit {}", offset, limit);
         } catch (DataAccessException e) {
-            log.error("Error al buscar usuario por cedula: {}", cedula, e);
-            throw new UsuarioNoEncontradoException("No se encontro el usuario", e);
+            log.error("Error al recuperar usuarios de la base de datos", e);
+            throw new DatabaseException("Error al momento de ejecutar la operacion en la base de datos ", e);
         }
+        return usuarios;
     }
 
+
+    /**
+     * Busca un usuario en la base de datos por su cédula.
+     *
+     * @param cedula La cédula del usuario a buscar.
+     * @return Un objeto `Optional<Usuario>` que contiene el usuario encontrado, o vacío si no se encuentra.
+     *         Si ocurre un error al acceder a la base de datos, se registra el error y se devuelve un `Optional.empty()`.
+     */
+    @Transactional(readOnly = true)
+    public Optional<Usuario> findUsuarioByCedula(String cedula){
+        try {
+            String sql = "SELECT * FROM tb_usuarios WHERE cedula = ?;";
+            return Optional.ofNullable(jdbcTemplate.queryForObject(sql, (rs, rownum) -> mapToUsuario(rs), cedula));
+        } catch (EmptyResultDataAccessException e) {
+            log.error("Error al buscar usuario por cedula: {}", cedula, e);
+            return Optional.empty();
+        }catch (DataAccessException e) {
+            log.error("Error al acceder a la base de datos al buscar usuario por cedula: {}", cedula, e);
+            throw new DatabaseException("Error al moment de ejecutar la operacion en la base de datos ", e);
+        }
+    }
     /**
      * Actualiza los datos de un usuario en la base de datos.
      *
@@ -115,8 +143,8 @@ public class UsuarioRepository {
                     usuario.getUsername(),
                     usuario.getId_user()
             );
-        } catch (Exception e) {
-            log.error(e.getMessage());
+        } catch (DataAccessException e) {
+            log.error("Error al actualizar usuario: {}", e.getMessage());
             return -1;
         }
     }
@@ -160,7 +188,7 @@ public class UsuarioRepository {
             );
             return keyHolder.getKey() != null ? keyHolder.getKey().intValue() : -1;
         } catch (Exception e) {
-            log.error(e.getMessage());
+            log.error("Error al insertar usuario: {}", e.getMessage());
             return -1;
         }
 

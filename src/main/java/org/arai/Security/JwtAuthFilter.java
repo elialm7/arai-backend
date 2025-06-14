@@ -4,8 +4,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.apache.coyote.Request;
-import org.arai.Model.JwtClaim.JwtClaims;
+import org.arai.Model.JwtClaim.JwtAudit;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -39,8 +38,9 @@ public class JwtAuthFilter  extends OncePerRequestFilter {
             return;
         }
         String token = authHeader.substring(6).trim();
+        //TODO: Manejar excepciones de forma mas especifica y menos generalizada
         try{
-            JwtClaims claims = jwtManager.parseAndValidateToken(token);
+            JwtAudit claims = jwtManager.parseAndValidateToken(token);
             request.setAttribute("jwtClaims", claims);
             String ipAddress = RequestInfo.getClientIp(request);
             String user_agent = RequestInfo.getUserAgent(request);
@@ -48,6 +48,7 @@ public class JwtAuthFilter  extends OncePerRequestFilter {
             claims.setUser_agent(user_agent);
             filterChain.doFilter(request, response);
         } catch (Exception e) {
+            logger.error("Error al obtener el token: " + e.getMessage());
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Error de autenticacion!!");
         }
     }}
