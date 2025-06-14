@@ -52,20 +52,27 @@ public class UsuarioController {
     @PutMapping("/actualizar")
     public ResponseEntity<?> actualizarUsuario(@JwtClaim JwtAudit claims,
                                                @Valid @RequestBody EditarUsuarioDTO editarUsuarioDTO){
+        usuarioService.actualizarUsuario(editarUsuarioDTO);
 
-        return null;
+        return new ResponseEntity<>(
+                "Usuario actualizado con ID: " + editarUsuarioDTO.id_usuario(),
+                HttpStatus.OK
+        );
     }
     @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<?> eliminarUsuario(@PathVariable("id") Integer idUsuario,
                                              @JwtClaim JwtAudit claims){
-
-        return null;
+        usuarioService.eliminarUsuario(idUsuario);
+        return new ResponseEntity<>("Usuario eliminado con ID: " + idUsuario, HttpStatus.OK);
     }
 
     @GetMapping("/buscar/{id}")
     public ResponseEntity<?> buscarUsuario(@PathVariable("id") Integer idUsuario,
                                            @JwtClaim JwtAudit claims){
-        return null;
+        return new ResponseEntity<>(
+                usuarioService.buscarUsuarioPorId(idUsuario),
+                HttpStatus.OK
+        );
     }
 
     @GetMapping("/buscar")

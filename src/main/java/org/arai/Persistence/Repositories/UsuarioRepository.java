@@ -224,5 +224,43 @@ public class UsuarioRepository {
         }
     }
 
+    /**
+     * Busca un usuario en la base de datos por su ID.
+     *
+     * @param idUsuario El ID del usuario a buscar.
+     * @return Un objeto `Optional<Usuario>` que contiene el usuario encontrado, o vacío si no se encuentra.
+     *         Si ocurre un error al acceder a la base de datos, se registra el error y se lanza una excepción.
+     */
+    @Transactional(readOnly = true)
+    public Optional<Usuario> findUsuarioById(Integer idUsuario) {
+        try {
+            String sql = "SELECT * FROM tb_usuarios WHERE id_user = ?;";
+            return Optional.ofNullable(jdbcTemplate.queryForObject(sql, (rs, rowNum) -> mapToUsuario(rs), idUsuario));
+        } catch (EmptyResultDataAccessException e) {
+            log.warn("No se encontró usuario con ID: {}", idUsuario);
+            return Optional.empty();
+        } catch (DataAccessException e) {
+            log.error("Error al acceder a la base de datos al buscar usuario por ID: {}", idUsuario, e);
+            throw new DatabaseException("Error al momento de ejecutar la operacion en la base de datos ", e);
+        }
+    }
+
+    /**
+     * Elimina un usuario de la base de datos por su ID.
+     *
+     * @param idUsuario El ID del usuario a eliminar.
+     * @return Un entero que indica el número de filas afectadas por la operación de eliminación.
+     *         Si ocurre un error durante la operación, se registra el error y se lanza una excepción.
+     */
+    @Transactional()
+    public Integer deleteUsuarioById(Integer idUsuario) {
+        try {
+            String sql = "DELETE FROM tb_usuarios WHERE id_user = ?;";
+            return jdbcTemplate.update(sql, idUsuario);
+        } catch (DataAccessException e) {
+            log.error("Error al eliminar usuario con ID: {}", idUsuario, e);
+            throw new DatabaseException("Error al momento de ejecutar la operacion en la base de datos ", e);
+        }
+    }
 
 }

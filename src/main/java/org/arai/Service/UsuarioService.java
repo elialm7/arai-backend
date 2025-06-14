@@ -4,6 +4,7 @@ import io.vavr.control.Try;
 import org.arai.Exceptions.UsuarioPermitResultException;
 import org.arai.Exceptions.UsuarioYaExisteException;
 import org.arai.Model.User.CrearUsuarioDTO;
+import org.arai.Model.User.EditarUsuarioDTO;
 import org.arai.Persistence.Entities.Usuario;
 import org.arai.Persistence.QueryResults.UsuarioPermisoResult;
 import org.arai.Persistence.Repositories.UsuarioRepository;
@@ -68,4 +69,36 @@ public class UsuarioService {
         return usuarios;
     }
 
+    public Integer  actualizarUsuario(EditarUsuarioDTO editarUsuarioDTO){
+        Usuario usuario = new Usuario();
+        usuario.setId_user(editarUsuarioDTO.id_usuario());
+        usuario.setNombre(editarUsuarioDTO.nombre());
+        usuario.setApellido(editarUsuarioDTO.apellido());
+        usuario.setUsername(editarUsuarioDTO.username());
+        usuario.setPassword(editarUsuarioDTO.password());
+        usuario.setCorreo(editarUsuarioDTO.correo());
+        usuario.setCedula(editarUsuarioDTO.cedula());
+        usuario.setId_rol_fk(editarUsuarioDTO.rol_id());
+
+        logger.info("Actualizando usuario con ID: {}", usuario.getId_user());
+        Integer updatedRows = usuarioRepository.updateUsuario(usuario);
+        if (updatedRows > 0) {
+            logger.info("Usuario actualizado correctamente.");
+            return updatedRows;
+        } else {
+            logger.warn("No se actualizó ningún usuario con ID: {}", usuario.getId_user());
+            return 0;
+        }
+    }
+
+
+    public Integer eliminarUsuario(Integer idUsuairo){
+        logger.info("Eliminando usuario con ID: {}", idUsuairo);
+        return usuarioRepository.deleteUsuarioById(idUsuairo);
+    }
+
+    public Usuario buscarUsuarioPorId(Integer idUsuario) {
+        logger.info("Buscando usuario con ID: {}", idUsuario);
+        return usuarioRepository.findUsuarioById(idUsuario).get();
+    }
 }
