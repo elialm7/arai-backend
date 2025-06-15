@@ -8,7 +8,6 @@ import org.arai.Model.User.LoginRequest;
 import org.arai.Model.User.LoginResponse;
 import org.arai.Persistence.Entities.Usuario;
 import org.arai.Persistence.QueryResults.UsuarioPermisoResult;
-import org.arai.Service.AuditoriaService;
 import org.arai.Service.AuthService;
 import org.arai.Service.UsuarioService;
 import org.arai.Utilities.Pair;
@@ -26,23 +25,20 @@ public class AuthController {
     private Logger log = LoggerFactory.getLogger(AuthController.class);
     private final AuthService auth_service;
     private final UsuarioService usuario_service;
-    private final AuditoriaService auditoria_service;
 
-    public AuthController(AuthService auth_service, UsuarioService usuario_service, AuditoriaService auditoriaService) {
+    public AuthController(AuthService auth_service, UsuarioService usuario_service) {
         this.auth_service = auth_service;
         this.usuario_service = usuario_service;
-        auditoria_service = auditoriaService;
     }
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginRequest loginRequestDTO){
        try {
-           auditoria_service.loginAttempt();
+
               log.info("Intentando login para usuario: {}", loginRequestDTO.cedula());
            Pair<String, Usuario> tokenUser = auth_service.token_login_with_user(loginRequestDTO.cedula(), loginRequestDTO.password());
            UsuarioPermisoResult usuarioPermisos = usuario_service.buscarPermisosPorUsuario(tokenUser.second().getId_user());
            log.info("Usuario autenticado: {}", tokenUser.second().getId_user());
-           auditoria_service.LoginSuccess(tokenUser.second().getId_user());
            return new ResponseEntity<>(
                    new LoginResponse(
                            tokenUser.second().getNombre(),

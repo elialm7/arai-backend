@@ -1,6 +1,5 @@
 package org.arai.Service;
 
-import io.vavr.control.Try;
 import org.arai.Exceptions.UsuarioPermitResultException;
 import org.arai.Exceptions.UsuarioYaExisteException;
 import org.arai.Model.User.CrearUsuarioDTO;
@@ -19,12 +18,10 @@ import java.util.Optional;
 public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
-    private final AuditoriaService auditoriaService;
     private Logger logger = LoggerFactory.getLogger(UsuarioService.class);
 
-    public UsuarioService(UsuarioRepository usuarioRepository, AuditoriaService auditoriaService) {
+    public UsuarioService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
-        this.auditoriaService = auditoriaService;
     }
 
 

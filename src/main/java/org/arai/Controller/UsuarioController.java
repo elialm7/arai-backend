@@ -7,7 +7,6 @@ import org.arai.Model.ErrorResponse.ErrorResponse;
 import org.arai.Model.JwtClaim.JwtAudit;
 import org.arai.Model.User.CrearUsuarioDTO;
 import org.arai.Model.User.EditarUsuarioDTO;
-import org.arai.Service.AuditoriaService;
 import org.arai.Service.UsuarioService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,12 +18,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/usuario")
 public class UsuarioController {
 
-    private final AuditoriaService auditoriaService;
     private final UsuarioService usuarioService;
     private Logger logger = LoggerFactory.getLogger(UsuarioController.class);
 
-    public UsuarioController(AuditoriaService auditoriaService, UsuarioService usuarioService) {
-        this.auditoriaService = auditoriaService;
+    public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
     }
 
