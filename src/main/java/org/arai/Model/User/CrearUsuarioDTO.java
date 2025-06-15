@@ -5,7 +5,7 @@ import jakarta.validation.constraints.*;
 
 public record CrearUsuarioDTO(
 
-        @NotBlank(message = "El username no puede ser nulo")
+        @NotNull(message = "El username no puede ser nulo")
         @NotEmpty(message = "El username no puede estar vacio")
         @JsonProperty("username")
         String username,
@@ -32,6 +32,16 @@ public record CrearUsuarioDTO(
 
         @NotNull(message = "El rol no puede ser nulo")
         @JsonProperty("rol_id")
-        Integer rol_id
+        Integer rol_id,
+
+        @NotBlank(message = "La cedula no puede estar en blanco")
+        @NotNull(message = "La cedula no puede ser nula")
+        @NotEmpty(message = "La cedula no puede estar vacia")
+        @JsonProperty("cedula")
+        String cedula
+
 ) {
+
+
+
 }
