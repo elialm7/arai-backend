@@ -47,7 +47,7 @@ public class DatabaseStartupValidator implements SmartLifecycle {
                         }
                     }
                 }
-                
+
                 if (dataSource instanceof HikariDataSource) {
                     HikariDataSource hikariDataSource = (HikariDataSource) dataSource;
                     logger.info("📊 Métricas del pool:");
