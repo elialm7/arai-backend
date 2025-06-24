@@ -1,9 +1,9 @@
-package org.arai.Model.User;
+package org.arai.Dto.users;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.*;
 
-public record CrearUsuarioDTO(
+public record CrearUsuarioRequest(
 
         @NotNull(message = "El username no puede ser nulo")
         @NotEmpty(message = "El username no puede estar vacio")

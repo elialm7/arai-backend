@@ -1,7 +1,7 @@
 package org.arai.Controller;
 
 import org.arai.Annotations.JwtClaim;
-import org.arai.Model.JwtClaim.JwtAudit;
+import org.arai.Dto.jwt.JwtAudit;
 import org.arai.Persistence.Entities.Rol;
 import org.arai.Persistence.Repositories.RolRepository;
 import org.springframework.http.HttpStatus;

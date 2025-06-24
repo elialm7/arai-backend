@@ -34,6 +34,7 @@ build/
 
 ### configuration ###
 .env.*
+!.env.example.properties
 ### others ###
 nb-configuration.xml
 jshell.history

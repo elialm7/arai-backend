@@ -1,4 +1,4 @@
-package org.arai.DConfiguration;
+package org.arai.Configuration;
 
 import org.arai.Security.JwtAuthFilter;
 import org.arai.Annotations.JwtClaimsArgumentResolver;

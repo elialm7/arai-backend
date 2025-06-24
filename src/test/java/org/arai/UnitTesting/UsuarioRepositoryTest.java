@@ -1,7 +1,7 @@
 package org.arai.UnitTesting;
 
 import org.arai.Persistence.Entities.Usuario;
-import org.arai.Persistence.QueryResults.UsuarioPermisoResult;
+import org.arai.Dto.user.UsuarioPermisoResult;
 import org.arai.Persistence.Repositories.UsuarioRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

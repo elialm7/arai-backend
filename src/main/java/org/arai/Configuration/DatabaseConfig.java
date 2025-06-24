@@ -1,4 +1,4 @@
-package org.arai.DConfiguration;
+package org.arai.Configuration;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Value;

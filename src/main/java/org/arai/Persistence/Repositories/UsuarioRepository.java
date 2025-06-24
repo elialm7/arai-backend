@@ -1,10 +1,8 @@
 package org.arai.Persistence.Repositories;
 
-import io.vavr.control.Try;
+import org.arai.Dto.users.UsuarioPermisoResult;
 import org.arai.Exceptions.DatabaseException;
 import org.arai.Persistence.Entities.Usuario;
-import org.arai.Exceptions.UsuarioNoEncontradoException;
-import org.arai.Persistence.QueryResults.UsuarioPermisoResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
@@ -15,7 +13,6 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.xml.crypto.Data;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

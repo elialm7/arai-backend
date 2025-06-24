@@ -1,9 +1,9 @@
-package org.arai.Model.User;
+package org.arai.Dto.users;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public record EditarUsuarioDTO(
+public record EditarUsuarioRequest(
         @JsonProperty("id_usuario")
         Integer id_usuario,
         @JsonProperty("username")

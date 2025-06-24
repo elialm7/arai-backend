@@ -1,10 +1,11 @@
-package org.arai.Exceptions;
+package org.arai.Configuration;
 
 import java.time.Instant;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.arai.Exceptions.DatabaseException;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;

@@ -1,11 +1,11 @@
 package org.arai.Service;
 
+import org.arai.Dto.users.CrearUsuarioRequest;
+import org.arai.Dto.users.EditarUsuarioRequest;
+import org.arai.Dto.users.UsuarioPermisoResult;
 import org.arai.Exceptions.UsuarioPermitResultException;
 import org.arai.Exceptions.UsuarioYaExisteException;
-import org.arai.Model.User.CrearUsuarioDTO;
-import org.arai.Model.User.EditarUsuarioDTO;
 import org.arai.Persistence.Entities.Usuario;
-import org.arai.Persistence.QueryResults.UsuarioPermisoResult;
 import org.arai.Persistence.Repositories.UsuarioRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,7 +35,7 @@ public class UsuarioService {
         return result.get();
     }
 
-    public Integer crearUsuario(CrearUsuarioDTO usuarioDTO){
+    public Integer crearUsuario(CrearUsuarioRequest usuarioDTO){
         Usuario usuario = new Usuario();
         usuario.setNombre(usuarioDTO.nombre());
         usuario.setApellido(usuarioDTO.apellido());
@@ -66,7 +66,7 @@ public class UsuarioService {
         return usuarios;
     }
 
-    public Integer  actualizarUsuario(EditarUsuarioDTO editarUsuarioDTO){
+    public Integer  actualizarUsuario(EditarUsuarioRequest editarUsuarioDTO){
         Usuario usuario = new Usuario();
         usuario.setId_user(editarUsuarioDTO.id_usuario());
         usuario.setNombre(editarUsuarioDTO.nombre());

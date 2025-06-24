@@ -1,4 +1,4 @@
-package org.arai.Model.JwtClaim;
+package org.arai.Dto.jwt;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

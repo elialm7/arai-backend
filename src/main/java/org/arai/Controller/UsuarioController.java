@@ -2,11 +2,11 @@ package org.arai.Controller;
 
 import jakarta.validation.Valid;
 import org.arai.Annotations.JwtClaim;
+import org.arai.Dto.users.CrearUsuarioRequest;
+import org.arai.Dto.users.EditarUsuarioRequest;
 import org.arai.Exceptions.UsuarioYaExisteException;
-import org.arai.Model.ErrorResponse.ErrorResponse;
-import org.arai.Model.JwtClaim.JwtAudit;
-import org.arai.Model.User.CrearUsuarioDTO;
-import org.arai.Model.User.EditarUsuarioDTO;
+import org.arai.Dto.error.ErrorResponse;
+import org.arai.Dto.jwt.JwtAudit;
 import org.arai.Service.UsuarioService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +26,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<?> crearUsuario(@JwtClaim JwtAudit claims, @Valid @RequestBody CrearUsuarioDTO crearUsuarioDTO){
+    public ResponseEntity<?> crearUsuario(@JwtClaim JwtAudit claims, @Valid @RequestBody CrearUsuarioRequest crearUsuarioDTO){
         try {
             logger.info("Creando usuario: {}", crearUsuarioDTO.username());
             Integer usuarioId = usuarioService.crearUsuario(crearUsuarioDTO);
@@ -48,7 +48,7 @@ public class UsuarioController {
     }
     @PutMapping("/actualizar")
     public ResponseEntity<?> actualizarUsuario(@JwtClaim JwtAudit claims,
-                                               @Valid @RequestBody EditarUsuarioDTO editarUsuarioDTO){
+                                               @Valid @RequestBody EditarUsuarioRequest editarUsuarioDTO){
         usuarioService.actualizarUsuario(editarUsuarioDTO);
 
         return new ResponseEntity<>(

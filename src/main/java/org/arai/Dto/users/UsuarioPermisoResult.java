@@ -1,4 +1,4 @@
-package org.arai.Persistence.QueryResults;
+package org.arai.Dto.users;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

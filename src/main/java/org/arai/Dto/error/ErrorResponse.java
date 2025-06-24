@@ -1,4 +1,4 @@
-package org.arai.Model.ErrorResponse;
+package org.arai.Dto.error;
 
 import java.time.LocalDateTime;
 

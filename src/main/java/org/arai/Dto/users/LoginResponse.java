@@ -1,4 +1,4 @@
-package org.arai.Model.User;
+package org.arai.Dto.users;
 
 import java.util.List;
 

@@ -1,13 +1,13 @@
 package org.arai.Controller;
 
+import org.arai.Dto.users.LoginRequest;
+import org.arai.Dto.users.UsuarioPermisoResult;
 import org.arai.Exceptions.IncorrectPasswordUsuarioException;
 import org.arai.Exceptions.UsuarioNoEncontradoException;
 import org.arai.Exceptions.UsuarioPermitResultException;
-import org.arai.Model.ErrorResponse.ErrorResponse;
-import org.arai.Model.User.LoginRequest;
-import org.arai.Model.User.LoginResponse;
+import org.arai.Dto.error.ErrorResponse;
+import org.arai.Dto.users.LoginResponse;
 import org.arai.Persistence.Entities.Usuario;
-import org.arai.Persistence.QueryResults.UsuarioPermisoResult;
 import org.arai.Service.AuthService;
 import org.arai.Service.UsuarioService;
 import org.arai.Utilities.Pair;
