@@ -26,6 +26,4 @@ public class DataSourceConfiguration {
         dataSource.setInitializationFailTimeout(30000);
         return dataSource;
     }
-
-
 }
